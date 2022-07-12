@@ -77,6 +77,8 @@ StyleCopReport.xml
 *_h.h
 *.ilk
 *.bin
+*.bin/Debug/net6.0
+*.obj/Debug/net6.0
 *.meta
 *.obj
 *.iobj
