@@ -28,3 +28,25 @@ string[] ArrayElementFilter(string[] inputArray){
     }
     return filteredArray;
 }
+
+// Метод, выводящий массивы в консоль в том виде, в котором было указано в задании
+void ResultPrinter(string[] initialArray, string[] resultArray){
+    int initialLen = initialArray.Length;
+    int resultLen = resultArray.Length;
+    string outStr = "[\"";
+    for (int i = 0; i < initialLen; i++){
+        if (i != initialLen - 1){
+            outStr += $"{initialArray[i]}\", ";
+        } else {
+            outStr += $"{initialArray[i]}\"] -> [\"";
+        }
+    }
+    for (int i = 0; i < resultLen; i++){
+        if (i != resultLen - 1){
+            outStr += $"{resultArray[i]}\", ";
+        } else {
+            outStr += $"{resultArray[i]}\"]";
+        }
+    }
+    WriteLine(outStr);
+}
