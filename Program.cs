@@ -8,8 +8,8 @@ Clear();
 string[] ArrayFiller(){
     string[] filledArray = new string[new Random().Next(1, 11)];
     int len = filledArray.Length;
-    int strLen = new Random().Next(1, 5);
     for (int i = 0; i < len; i++){
+        int strLen = new Random().Next(1, 6);
         for (int j = 0; j < strLen; j++){
             filledArray[i] += "*";
         }
@@ -19,11 +19,11 @@ string[] ArrayFiller(){
 
 // Метод, возвращающий новый массив, в котором длина элемента (строки) не превышает 3-х символов
 string[] ArrayElementFilter(string[] inputArray){
-    string[] filteredArray = new string[0];
+    string[] filteredArray = new string[] {};
     int len = inputArray.Length;
     for (int i = 0; i < len; i++){
         if (inputArray[i].Length <= 3) {
-            filteredArray.Append(inputArray[i]);
+            filteredArray = filteredArray.Append(inputArray[i]).ToArray();
         }
     }
     return filteredArray;
@@ -36,17 +36,22 @@ void ResultPrinter(string[] initialArray, string[] resultArray){
     string outStr = "[\"";
     for (int i = 0; i < initialLen; i++){
         if (i != initialLen - 1){
-            outStr += $"{initialArray[i]}\", ";
+            outStr += $"{initialArray[i]}\", \"";
         } else {
             outStr += $"{initialArray[i]}\"] -> [\"";
         }
     }
     for (int i = 0; i < resultLen; i++){
         if (i != resultLen - 1){
-            outStr += $"{resultArray[i]}\", ";
+            outStr += $"{resultArray[i]}\", \"";
         } else {
             outStr += $"{resultArray[i]}\"]";
         }
     }
     WriteLine(outStr);
 }
+
+
+string[] strArray = ArrayFiller();
+string[] outArray = ArrayElementFilter(strArray);
+ResultPrinter(strArray, outArray);
