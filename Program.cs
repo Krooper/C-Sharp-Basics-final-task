@@ -19,10 +19,11 @@ string[] ArrayFiller(){
 
 // Метод, возвращающий новый массив, в котором длина элемента (строки) не превышает 3-х символов
 string[] ArrayElementFilter(string[] inputArray){
-    string[] filteredArray = new string[] {};
+    string[] filteredArray = new string[0];
     int len = inputArray.Length;
+    int maxStrLen = 3;
     for (int i = 0; i < len; i++){
-        if (inputArray[i].Length <= 3) {
+        if (inputArray[i].Length <= maxStrLen) {
             filteredArray = filteredArray.Append(inputArray[i]).ToArray();
         }
     }
